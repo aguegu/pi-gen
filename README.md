@@ -251,4 +251,7 @@ follows:
 
 # Notes
 
- * run `docker build -t pi-gen .` before `./build-docker.sh` the `pi-gen` image building process is seperated from `./build-docker.sh`
+ * `make builder` to build docker image for building
+ * `make stage*` to build specific stage
+
+check Makefile for details
