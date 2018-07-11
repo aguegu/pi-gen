@@ -52,7 +52,8 @@ if [ "$CONTAINER_EXISTS" != "" ] && [ "$CONTINUE" != "1" ]; then
 	exit 1
 fi
 
-$DOCKER build -t pi-gen .
+#$DOCKER build -t pi-gen . # run this seperately
+
 if [ "$CONTAINER_EXISTS" != "" ]; then
 	trap "echo 'got CTRL+C... please wait 5s'; $DOCKER stop -t 5 ${CONTAINER_NAME}_cont" SIGINT SIGTERM
 	time $DOCKER run --rm --privileged \

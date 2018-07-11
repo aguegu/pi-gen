@@ -249,3 +249,6 @@ follows:
  * Once you're happy with the image you can remove the SKIP_IMAGES files and
    export your image to test
 
+# Notes
+
+ * run `docker build -t pi-gen .` before `./build-docker.sh` the `pi-gen` image building process is seperated from `./build-docker.sh`
