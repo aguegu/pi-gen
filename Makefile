@@ -9,7 +9,7 @@ image:
 		bash -e -o pipefail -c "dpkg-reconfigure qemu-user-static && cd /pi-gen; ./build.sh && rsync -av work/*/build.log deploy/"
 
 builder:
-	${DOCKER} build -t pi-gen -f builder.Dockfile .
+	${DOCKER} build -t pi-gen -f builder.Dockerfile .
 
 clean:
 	rm -rf work deploy
