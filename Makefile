@@ -1,5 +1,5 @@
 DOCKER := docker
-CONTAINER_NAME := pigen_work
+IMG_NAME := pi-gen
 
 image:
 	time ${DOCKER} run --rm --privileged \
