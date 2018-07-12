@@ -1,5 +1,5 @@
 DOCKER := docker
-IMG_NAME := pi-gen
+IMG_NAME := hunterio
 
 image:
 	time ${DOCKER} run --rm --privileged \
