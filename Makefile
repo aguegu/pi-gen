@@ -1,18 +1,19 @@
-DOCKER := docker
 IMG_NAME := hunterio
+APT_PROXY := http://192.168.1.22:3142
 
 image:
-	time ${DOCKER} run --rm --privileged \
+	time docker run --rm --privileged \
 		-e IMG_NAME="${IMG_NAME}" \
+		-e APT_PROXY="${APT_PROXY}" \
 		-v ${CURDIR}:/pi-gen \
 		pi-gen \
 		bash -e -o pipefail -c "dpkg-reconfigure qemu-user-static && cd /pi-gen; ./build.sh && rsync -av work/*/build.log deploy/"
 
 builder:
-	${DOCKER} build -t pi-gen -f builder.Dockerfile .
+	docker build -t pi-gen .
 
 skipall:
-	for d in stage*/; do touch "$$d/SKIP"; done	
+	for d in stage*/; do touch "$$d/SKIP"; done
 	touch stage2/SKIP_IMAGES
 	touch stage4/SKIP_IMAGES
 	touch stage5/SKIP_IMAGES
