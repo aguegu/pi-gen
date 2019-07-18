@@ -36,8 +36,16 @@ stage2:
 	rm -f $@/SKIP
 	${MAKE} image
 
+stage6:
+	echo $@
+	sudo rm -rf work/*${IMG_NAME}/$@
+	${MAKE} skipall
+	rm -f $@/SKIP
+	rm -f $@/SKIP_IMAGES
+	${MAKE} image
+
 clean:
 	rm -rf work deploy
 	mkdir work deploy
 
-.PHONY: image builder skipall clean stage0 stage1 stage2
+.PHONY: image builder skipall clean stage0 stage1 stage2 stage6
